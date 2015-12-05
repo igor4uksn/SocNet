@@ -1,3 +1,4 @@
+//post class constructor
 function Post(post){
     this.id = post.id;
     this.text = post.text;
@@ -9,6 +10,7 @@ function Post(post){
 Post.prototype.share = function(){};
 Post.prototype.like = function(){};
 
+//user class constructor
 function User(user){
     this.id = user.id;
     this.firstName = user.firstName;
@@ -29,9 +31,15 @@ User.prototype.deleteFriend = function(){};
 User.prototype.newPost = function(){};
 User.prototype.delPost = function(){};
 
+//super user  class constructor
 function SuperUser(user){
-    User.apply(this, arguments );
+    User.apply(this, arguments);
 }
+//using inheritance
+SuperUser.prototype = Object.create(User.prototype);
+SuperUser.prototype.constructor = SuperUser;
+//adding special methods for super user
 SuperUser.prototype.banUser = function(){};
 SuperUser.prototype.delUser = function(){};
+//overriding User.prototype.delPost (I hope)
 SuperUser.prototype.delPost = function(){};
