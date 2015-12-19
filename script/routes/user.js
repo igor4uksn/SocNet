@@ -7,10 +7,11 @@ module.exports = (function(){
     var userRouter = express.Router();
     var userHandler = new UserHandler();
 
+    userRouter.get('/:id', userHandler.view);
     userRouter.post('/', userHandler.updateUser);
     userRouter.post('/:name', userHandler.addFriend);
     userRouter.post('/:name/:id', userHandler.deleteFriend);
-    userRouter.post('/:name', userHandler.addPost);
+    userRouter.post('/:id', userHandler.addPost);
     userRouter.post('/:name/:id', userHandler.deletePost);
 
 
