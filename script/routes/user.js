@@ -11,8 +11,7 @@ module.exports = (function(){
     userRouter.post('/', userHandler.updateUser);
     userRouter.post('/:name', userHandler.addFriend);
     userRouter.post('/:name/:id', userHandler.deleteFriend);
-    userRouter.post('/:id', userHandler.addPost);
-    userRouter.post('/:name/:id', userHandler.deletePost);
+ 
 
 
     return userRouter;
